@@ -72,3 +72,11 @@
       @apply bg-background text-foreground;
     }
   }
+
+  span {
+    display: inline-block; /* Allows the span to behave like a block-level element while still being inline */
+    max-width: 100%; /* Ensures the span doesn't exceed the width of its container */
+    word-wrap: break-word; /* Allows long words to wrap */
+    overflow-wrap: break-word; /* Modern equivalent of word-wrap */
+    white-space: normal; /* Ensures text wraps within the span */
+}

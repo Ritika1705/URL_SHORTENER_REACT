@@ -15,6 +15,7 @@ import * as Yup from 'yup'
 import useFetch from '@/hooks/use-fetch'
 import { signup } from '@/db/apiAuth'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { UrlState } from "./context";
   
 
 const Signup = () => {

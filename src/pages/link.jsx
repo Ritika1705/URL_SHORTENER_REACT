@@ -78,8 +78,11 @@ const Link = () => {
         <div className='flex flex-col gap-8 sm:flex-row justify-between'>
             <div className='flex flex-col items-start gap-8 rounded-lg sm:w-2/5'>
                 <span className='text-6xl font-extrabold hover:underline cursor-pointer'>{url?.title}</span>
-                <a href={`https://trim.in/${link}`} target='_blank' className='text-3xl sm:text-4xl text-blue-400 font-bold hover:underline'>
-                    https://trim.in/{link}
+                <a
+                    href={`https://url-shortener-react-beta.vercel.app/${link}`}
+                    target="_blank"
+                    className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer">
+                    https://url-shortener-react-beta.vercel.app/{link}
                 </a>
                 <a href={url?.original_url} target='_blank' className='flex items-center gap-1 hover:underline cursor-pointer'>
                     <LinkIcon className='p-1'/>
@@ -89,7 +92,7 @@ const Link = () => {
                 <div className='flex gap-2'>
                     <Button 
                         variant="ghost"
-                        onClick={() => navigator.clipboard.writeText(`https://trim.in/${url?.short_url}`)}
+                        onClick={() => navigator.clipboard.writeText(`https://url-shortener-react-beta.vercel.app/${url?.short_url}`)}
                     >
                         <Copy/>
                     </Button>
@@ -125,7 +128,7 @@ const Link = () => {
                     <Location stats={stats} />
                     <CardTitle>Device Info</CardTitle>
                     <Device stats={stats} />
-                    
+
                     </CardContent>
                 ) : (
                     <CardContent>

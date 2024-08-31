@@ -26,7 +26,13 @@ const LinkCard = ({url, fetchUrls}) => {
   const {loading: loadingDelete, fn: fnDelete} = useFetch(deleteUrl, url?.id);
 
   return (
-    <div className='flex flex-col md:flex-row gap-5 border p-4 bg-gray-900 rounded-lg'>
+    <div style={{
+        width: '100%',           // Set a fixed width or use a percentage
+        overflow: 'auto',       // Hide any content that overflows
+        wordWrap: 'break-word',   // Break long words and wrap text
+        overflowWrap: 'break-word', // Modern equivalent of wordWrap
+        whiteSpace: 'normal'      // Allow text to wrap onto the next line
+        }} className='flex flex-col md:flex-row gap-5 border p-4 bg-gray-900 rounded-lg'>
         <img 
             src={url?.qr} 
             className='h-32 object-contain ring ring-blue-500 self-start'
@@ -37,11 +43,11 @@ const LinkCard = ({url, fetchUrls}) => {
             {url?.title}
             </span>
             <span className="text-2xl text-blue-400 font-bold hover:underline cursor-pointer">
-            https://trim.in/{url?.custom_url ? url?.custom_url : url.short_url}
+            https://url-shortener-react-beta.vercel.app/{url?.custom_url ? url?.custom_url : url.short_url}
             </span>
             <span className="flex items-center gap-1 hover:underline cursor-pointer">
             <LinkIcon className="p-1" />
-            {url?.original_url}
+                {url?.original_url}
             </span>
             <span className="flex items-end font-extralight text-sm flex-1">
             {new Date(url?.created_at).toLocaleString()}
@@ -50,7 +56,7 @@ const LinkCard = ({url, fetchUrls}) => {
         <div className='flex gap-2'>
             <Button 
                 variant="ghost"
-                onClick={() => navigator.clipboard.writeText(`https://trim.in/${url?.short_url}`)}
+                onClick={() => navigator.clipboard.writeText(`https://url-shortener-react-beta.vercel.app/${url?.short_url}`)}
             >
                 <Copy/>
             </Button>
